@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: Blueshift Java Lib - Library project to store all standardized objects
