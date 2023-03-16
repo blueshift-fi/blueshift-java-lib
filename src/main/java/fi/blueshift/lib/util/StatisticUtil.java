@@ -54,8 +54,8 @@ public class StatisticUtil {
 
     public List<Point2D.Double> interpolatedPoints(@NotEmpty List<Point2D.Double> rawPointsList,
                                                    @NotEmpty List<Double> xGoalList) {
-        var existedXPoints = rawPointsList.parallelStream().mapToDouble(Point2D::getX).toArray();
-        var existedYPoints = rawPointsList.parallelStream().mapToDouble(Point2D::getY).toArray();
+        double[] existedXPoints = rawPointsList.parallelStream().mapToDouble(Point2D::getX).toArray();
+        double[] existedYPoints = rawPointsList.parallelStream().mapToDouble(Point2D::getY).toArray();
 
         UnivariateInterpolator interpolator = new LinearInterpolator();
         UnivariateFunction interpolateFunction = interpolator.interpolate(existedXPoints, existedYPoints);
