@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'fi.blueshift'
-version = '0.0.3'
+version = '0.0.4'
 sourceCompatibility = 11
 targetCompatibility = 11
 
@@ -46,7 +46,7 @@ dependencies {
 
 java {
     withSourcesJar()
-//    withJavadocJar()
+    withJavadocJar()
 }
 
 wrapper {
