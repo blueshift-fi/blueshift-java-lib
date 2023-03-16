@@ -5,7 +5,7 @@ plugins {
 
 group = 'fi.blueshift'
 version = '0.0.1-blues'
-sourceCompatibility = "17"
+sourceCompatibility = "11"
 
 configurations {
     compileOnly {
@@ -21,7 +21,7 @@ repositories {
 
 compileJava.options.encoding = 'UTF-8'
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
@@ -53,4 +53,4 @@ publishing {
         mavenLocal()
     }
 }
-targetCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_11

@@ -2,6 +2,7 @@ package fi.blueshift.lib.util;
 
 import fi.blueshift.lib.domain.enums.CryptoNetworkType;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.common.header.Header;
 import org.apache.kafka.common.header.Headers;
 
 import java.util.HashMap;
@@ -12,12 +13,16 @@ public class KafkaUtil {
 
     public static Map<String, Object> parseHeaders(Headers kafkaHeaders) {
         Map<String, Object> headerMap = new HashMap<>();
-        for (var headerItem : kafkaHeaders) {
-            Object value = switch (headerItem.key()) {
-                case "historical" -> parseHistoricalByte(headerItem.value());
-                case "network" -> parseNetworkByte(headerItem.value());
-                default -> new String(headerItem.value());
-            };
+        for (Header headerItem : kafkaHeaders) {
+            Object value;
+            switch (headerItem.key()) {
+                case "historical":
+                    value = parseHistoricalByte(headerItem.value());
+                case "network":
+                    value = parseNetworkByte(headerItem.value());
+                default:
+                    value = new String(headerItem.value());
+            }
             headerMap.put(headerItem.key(), value);
         }
         return headerMap;
