@@ -1,9 +1,7 @@
 package fi.blueshift.lib.domain.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serial;
@@ -14,6 +12,7 @@ import java.io.Serializable;
 @ToString
 @NoArgsConstructor
 @SuperBuilder
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class TokenShortDto implements Serializable {
 
     @Serial

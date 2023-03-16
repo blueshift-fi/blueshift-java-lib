@@ -1,4 +1,4 @@
-package fi.blueshift.lib.exception;
+package fi.blueshift.lib.messages;
 
 public class ExceptionMessages {
     public static final String TRANSACTION_FETCHING_EXCEPTION = "There is no transaction with specified params '%s'";
@@ -21,7 +21,7 @@ public class ExceptionMessages {
 //    public static final String ENTITY_NOT_FOUND_ERROR = "Entity not found. Please check request parameters";
 //    public static final String REQUEST_MESSAGE_READABLE_ERROR = "Malformed JSON Request. Please check request parameters";
 //    public static final String UNEXPECTED_ERROR = "Unexpected error occurred. Please check stacktrace";
-//    public static final String FEIGN_UNEXPECTED_ERROR = "Some error with service connections. Try again";
+    public static final String FEIGN_UNEXPECTED_ERROR = "Some error with service connections. Try again";
 //
 //    public static final String CURRENCY_SYMBOL_NOT_FOUND_ERROR = "The currency symbol was not found in the system. Please check and add it in CurrencySymbolType class.";
 //    public static final String LOAD_DATA_FROM_EXTERNAL_PROVIDER_ERROR = "The data from external provider can't be received or parsed. Check stack trace.";
