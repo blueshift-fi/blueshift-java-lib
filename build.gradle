@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'fi.blueshift'
-version = '0.0.1-blues'
+version = '0.0.2'
 sourceCompatibility = "11"
 
 configurations {
