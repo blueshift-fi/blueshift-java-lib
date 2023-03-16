@@ -4,8 +4,9 @@ plugins {
 }
 
 group = 'fi.blueshift'
-version = '0.0.2'
-sourceCompatibility = "11"
+version = '0.0.3'
+sourceCompatibility = 11
+targetCompatibility = 11
 
 configurations {
     compileOnly {
@@ -43,14 +44,20 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
 }
 
+java {
+    withSourcesJar()
+//    withJavadocJar()
+}
+
+wrapper {
+    gradleVersion = "7.4"
+    distributionType = Wrapper.DistributionType.ALL
+}
+
 publishing {
     publications {
-        mavenJava(MavenPublication) {
+        maven(MavenPublication) {
             from components.java
         }
     }
-    repositories {
-        mavenLocal()
-    }
 }
-targetCompatibility = JavaVersion.VERSION_11

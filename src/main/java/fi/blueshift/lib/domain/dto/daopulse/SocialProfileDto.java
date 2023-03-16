@@ -10,7 +10,6 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -20,7 +19,7 @@ import java.time.LocalDateTime;
 @Data
 public class SocialProfileDto implements Serializable {
 
-    @Serial
+
     private static final long serialVersionUID = -4016479390111191232L;
 
     private SocialProfileType socialType;

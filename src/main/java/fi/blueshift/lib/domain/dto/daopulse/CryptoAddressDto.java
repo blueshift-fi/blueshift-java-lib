@@ -10,7 +10,6 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import java.io.Serial;
 import java.io.Serializable;
 
 @SuperBuilder
@@ -20,7 +19,7 @@ import java.io.Serializable;
 @ToString
 public class CryptoAddressDto extends BaseDto implements Serializable {
 
-    @Serial
+
     private static final long serialVersionUID = 1729819205656955995L;
 
     @ApiModelProperty(notes = "id of DAO owner of address")

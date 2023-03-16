@@ -3,7 +3,6 @@ package fi.blueshift.lib.domain.dto.daopulse;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
 @ToString
 public class WalletDto extends BaseDto implements Serializable {
 
-    @Serial
+
     private static final long serialVersionUID = -8033241909075201075L;
 
     private Long id;

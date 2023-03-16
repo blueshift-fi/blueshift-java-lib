@@ -6,7 +6,6 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
-import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -18,7 +17,7 @@ import java.time.LocalDateTime;
 @ToString
 public class BaseDto implements Serializable {
 
-    @Serial
+
     private static final long serialVersionUID = 5666319876622824350L;
 
     private Long id;

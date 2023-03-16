@@ -4,7 +4,6 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serial;
 import java.io.Serializable;
 
 @Getter
@@ -15,7 +14,7 @@ import java.io.Serializable;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class TokenShortDto implements Serializable {
 
-    @Serial
+
     private static final long serialVersionUID = -6278878744165190026L;
 
     /**

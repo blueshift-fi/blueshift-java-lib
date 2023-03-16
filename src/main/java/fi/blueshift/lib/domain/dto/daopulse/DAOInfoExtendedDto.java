@@ -5,7 +5,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
@@ -17,7 +16,7 @@ import java.util.List;
 @ToString(callSuper = true)
 public class DAOInfoExtendedDto extends DAOInfoDto implements Serializable {
 
-    @Serial
+
     private static final long serialVersionUID = 1324739893553586629L;
 
     @ApiModelProperty(notes = "Token that is represent DAO")

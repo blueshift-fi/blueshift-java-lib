@@ -7,7 +7,6 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
-import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,7 +19,7 @@ import java.util.List;
 @ToString
 public class DAOInfoDto extends BaseDto implements Serializable {
 
-    @Serial
+
     private static final long serialVersionUID = 1324739893553586629L;
 
     @NotBlank
