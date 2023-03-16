@@ -4,8 +4,8 @@ plugins {
 }
 
 group = 'fi.blueshift'
-version = '1.0.0'
-sourceCompatibility = "14"
+version = '0.0.1-blues'
+sourceCompatibility = "17"
 
 configurations {
     compileOnly {
@@ -53,4 +53,4 @@ publishing {
         mavenLocal()
     }
 }
-targetCompatibility = JavaVersion.VERSION_14
+targetCompatibility = JavaVersion.VERSION_17
