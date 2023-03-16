@@ -3,7 +3,6 @@ package fi.blueshift.lib.domain.dto.daopulse;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -14,7 +13,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 public class DAOProposalStrategyDto implements Serializable {
-    @Serial
+
     private static final long serialVersionUID = 7739479885986129896L;
 
     private Integer strategyIndex;
@@ -32,7 +31,7 @@ public class DAOProposalStrategyDto implements Serializable {
     @Getter
     @Setter
     public static class StrategyParamsDto implements Serializable {
-        @Serial
+
         private static final long serialVersionUID = 6577079361435158908L;
         private String symbol;
         private String address;

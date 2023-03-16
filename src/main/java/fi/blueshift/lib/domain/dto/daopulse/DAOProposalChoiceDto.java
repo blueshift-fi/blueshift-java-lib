@@ -4,7 +4,6 @@ import fi.blueshift.lib.domain.enums.daopulse.DAOProposalChoiceType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serial;
 import java.io.Serializable;
 
 @SuperBuilder
@@ -15,7 +14,7 @@ import java.io.Serializable;
 @ToString
 public class DAOProposalChoiceDto implements Serializable {
 
-    @Serial
+
     private static final long serialVersionUID = -2885391008621715579L;
     private Integer choiceIndex;
 

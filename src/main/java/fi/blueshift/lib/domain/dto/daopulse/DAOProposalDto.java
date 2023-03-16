@@ -6,7 +6,6 @@ import fi.blueshift.lib.domain.enums.daopulse.DAOProposalType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serial;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -18,7 +17,7 @@ import java.util.List;
 @ToString
 public class DAOProposalDto extends BaseDto{
 
-    @Serial
+
     private static final long serialVersionUID = 7376656867230368923L;
 
     private String externalGuid;

@@ -14,7 +14,6 @@ import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
@@ -24,7 +23,7 @@ import java.util.List;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class TokenPairDto implements Serializable {
-    @Serial
+
     private static final long serialVersionUID = -6558257723604073185L;
 
     /**

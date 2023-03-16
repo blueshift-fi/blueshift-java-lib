@@ -5,7 +5,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -19,7 +18,7 @@ import java.util.Set;
 @ToString
 public class TokenDto extends BaseDto implements Serializable {
 
-    @Serial
+
     private static final long serialVersionUID = -7885740127426704204L;
 
     @ApiModelProperty(notes = "The name of this token (cryptocurrency)")
