@@ -15,12 +15,13 @@ import java.time.LocalDateTime;
 @Setter
 public class TokenPriceOhlcDto {
     TokenDto token;
+    String tokenAddress;
     BigDecimal open;
     BigDecimal high;
     BigDecimal low;
     BigDecimal close;
-
+    TokenDto quoteToken;
+    String quoteTokenAddress;
     LocalDateTime dateTime;
-
     Long roundedTimestamp;
 }

@@ -1,103 +1,146 @@
 package fi.blueshift.lib.domain.graphqlDto;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import fi.blueshift.lib.domain.enums.CryptoNetworkType;
+import fi.blueshift.lib.domain.enums.SwapOperationType;
 import io.leangen.graphql.annotations.GraphQLId;
 import io.leangen.graphql.annotations.GraphQLInputField;
 import io.leangen.graphql.annotations.types.GraphQLType;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
-import java.math.BigDecimal;
+import javax.validation.constraints.NotNull;
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.List;
 
 @GraphQLType(name = "Pair")
 @Data
 @SuperBuilder
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class TokenPairDto {
+public class TokenPairDto implements Serializable {
+    @Serial
+    private static final long serialVersionUID = -6558257723604073185L;
 
     /**
      * pair address
      */
     @GraphQLId
     String addressId;
+    CryptoNetworkType network;
 
-    /**
-     * mirrored from the smart contract
-     */
     @GraphQLInputField
     TokenDto token0;
+    @JsonAlias({"tokenBaseAddress"})
+    @NotNull
+    String token0AddressId;
+    @JsonAlias({"tokenBaseMarketSymbol"})
+    @NotNull
+    String token0MarketSymbol;
 
     @GraphQLInputField
     TokenDto token1;
+    @JsonAlias({"tokenQuoteAddress"})
+    @NotNull
+    String token1AddressId;
+    @JsonAlias({"tokenQuoteMarketSymbol"})
+    @NotNull
+    String token1MarketSymbol;
 
-    @GraphQLInputField
-    BigDecimal reserve0;
+    @JsonAlias({"relatedPortfolioAddresses"})
+    List<String> portfolioAddressTrackList;
 
-    @GraphQLInputField
-    BigDecimal reserve1;
+    @Builder.Default
+    SwapOperationType operationType = SwapOperationType.BUY;
 
-    @GraphQLInputField
-    BigDecimal totalSupply;
+    public String getTokenBaseAddress() {
+        if (operationType == SwapOperationType.BUY) {
+            return token0AddressId;
+        }
+        return token1AddressId;
+    }
 
-    /**
-     * derived liquidity
-     */
-    @GraphQLInputField
-    BigDecimal reserveETH;
+    public String getTokenQuoteAddress() {
+        if (operationType == SwapOperationType.BUY) {
+            return token1AddressId;
+        }
+        return token0AddressId;
+    }
 
-    @GraphQLInputField
-    BigDecimal reserveUSD;
-
-    /**
-     * used for separating per pair reserves and global
-     */
-    @GraphQLInputField
-    BigDecimal trackedReserveETH;
-
-    /**
-     * Price in terms of the asset pair
-     */
-    @GraphQLInputField
-    BigDecimal token0Price;
-
-    @GraphQLInputField
-    BigDecimal token1Price;
-
-    /**
-     * lifetime volume stats
-     */
-    @GraphQLInputField
-    BigDecimal volumeToken0;
-
-    @GraphQLInputField
-    BigDecimal volumeToken1;
-
-    @GraphQLInputField
-    BigDecimal volumeUSD;
-
-    @GraphQLInputField
-    BigDecimal untrackedVolumeUSD;
-
-    @GraphQLInputField
-    Long txCount;
-
-    /**
-     * creation stats
-     */
-    @GraphQLInputField
-    Long createdAtTimestamp;
-
-    @GraphQLInputField
-    Long createdAtBlockNumber;
-
-    /**
-     * Fields used to help derived relationship
-     */
-    @GraphQLInputField
-    Long liquidityProviderCount;
+//
+//    /**
+//     * mirrored from the smart contract
+//     *///
+//    @GraphQLInputField
+//    BigDecimal reserve0;
+//
+//    @GraphQLInputField
+//    BigDecimal reserve1;
+//
+//    @GraphQLInputField
+//    BigDecimal totalSupply;
+//
+//    /**
+//     * derived liquidity
+//     */
+//    @GraphQLInputField
+//    BigDecimal reserveETH;
+//
+//    @GraphQLInputField
+//    BigDecimal reserveUSD;
+//
+//    /**
+//     * used for separating per pair reserves and global
+//     */
+//    @GraphQLInputField
+//    BigDecimal trackedReserveETH;
+//
+//    /**
+//     * Price in terms of the asset pair
+//     */
+//    @GraphQLInputField
+//    BigDecimal token0Price;
+//
+//    @GraphQLInputField
+//    BigDecimal token1Price;
+//
+//    /**
+//     * lifetime volume stats
+//     */
+//    @GraphQLInputField
+//    BigDecimal volumeToken0;
+//
+//    @GraphQLInputField
+//    BigDecimal volumeToken1;
+//
+//    @GraphQLInputField
+//    BigDecimal volumeUSD;
+//
+//    @GraphQLInputField
+//    BigDecimal untrackedVolumeUSD;
+//
+//    @GraphQLInputField
+//    Long txCount;
+//
+//    /**
+//     * creation stats
+//     */
+//    @GraphQLInputField
+//    Long createdAtTimestamp;
+//
+//    @GraphQLInputField
+//    Long createdAtBlockNumber;
+//
+//    /**
+//     * Fields used to help derived relationship
+//     */
+//    @GraphQLInputField
+//    Long liquidityProviderCount;
 
 //    /**
 //     * used to detect new exchanges
