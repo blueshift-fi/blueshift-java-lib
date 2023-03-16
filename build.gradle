@@ -27,7 +27,7 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 dependencies {
-    implementation 'org.springframework:spring-web:5.3.16'
+    implementation 'org.springframework:spring-web:5.3.18'
     implementation 'org.springframework.data:spring-data-relational:2.3.4'
     implementation 'com.github.blueshift-fi:graphql-spqr-java:0.11.4-BLUES'
 // uncomment for local artifact -> implementation 'io.leangen.graphql:spqr:0.11.4-BLUES'
@@ -37,7 +37,7 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.1'
     implementation 'org.apache.commons:commons-lang3:3.8.1'
     implementation 'org.apache.commons:commons-math3:3.6.1'
-    implementation 'io.springfox:springfox-swagger2:2.7.0'
+    implementation 'io.springfox:springfox-swagger2:3.0.0'
 
     compileOnly 'org.projectlombok:lombok:1.18.22'
 
@@ -46,7 +46,7 @@ dependencies {
 
 java {
     withSourcesJar()
-    withJavadocJar()
+//    withJavadocJar()
 }
 
 wrapper {
