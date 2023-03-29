@@ -18,8 +18,10 @@ public class KafkaUtil {
             switch (headerItem.key()) {
                 case "historical":
                     value = parseHistoricalByte(headerItem.value());
+                    break;
                 case "network":
                     value = parseNetworkByte(headerItem.value());
+                    break;
                 default:
                     value = new String(headerItem.value());
             }
