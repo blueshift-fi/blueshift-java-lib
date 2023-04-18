@@ -22,15 +22,15 @@ public enum NewsSourceCollectorType {
                 .findFirst().orElse(null);
     }
 
+    public static NewsSourceCollectorType getDefault() {
+        return NewsSourceCollectorType.NONE;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public String getTypeName() {
         return typeName;
-    }
-
-    public static NewsSourceCollectorType getDefault() {
-        return NewsSourceCollectorType.NONE;
     }
 }

@@ -5,8 +5,7 @@ import java.util.Arrays;
 public enum DAOPowerOfControlType {
 
     PROTOCOL_PARAMETERS("Protocol parameters"),
-    FULL_CONTROL_OF_PROTOCOL("Full control of a protocol")
-            ;
+    FULL_CONTROL_OF_PROTOCOL("Full control of a protocol");
 
 
     private final String typeName;

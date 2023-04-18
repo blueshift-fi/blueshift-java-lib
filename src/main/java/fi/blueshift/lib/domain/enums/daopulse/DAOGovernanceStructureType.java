@@ -5,8 +5,7 @@ import java.util.Arrays;
 public enum DAOGovernanceStructureType {
 
     EQUALS_RIGHTS("equal rights"),
-    PROPORTIONAL_TO_DEPOSIT("proportional to deposit")
-            ;
+    PROPORTIONAL_TO_DEPOSIT("proportional to deposit");
 
     private final String typeName;
 

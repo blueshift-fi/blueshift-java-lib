@@ -5,8 +5,7 @@ import java.util.Arrays;
 public enum DAOParticipationType {
 
     OPEN("Open"),
-    RESTRICTED("Restricted")
-    ;
+    RESTRICTED("Restricted");
 
     private final String typeName;
 

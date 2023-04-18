@@ -4,12 +4,11 @@ import java.util.Arrays;
 
 public enum DAOType {
 
-    SOCIAL_DAO( "Social", "Social group that wants to have a DAO for whatever reason (Dave DAO, guilds, etc)"),
-    PROTOCOL_DAO ("Protocol", "DAO that manages a protocol (Uniswap, Maker, ENS)"),
+    SOCIAL_DAO("Social", "Social group that wants to have a DAO for whatever reason (Dave DAO, guilds, etc)"),
+    PROTOCOL_DAO("Protocol", "DAO that manages a protocol (Uniswap, Maker, ENS)"),
     CORPORATE_DAO("Corporate", "DAO with express purpose to have a profitable business (can also be a цэцэг protocol DAO) (Index COOP, Compound)"),
-    OWNERSHIP_DAO ("Ownership", "DAO with the purpose to own, maintain and share a physical or digital thing or funds (Constitution DAO, PleaserDAO, MetaCartel Ventures)"),
-    REAL_LIFE_DAO ("Real-life", "on-chain governance / control / sharing / voting for something based in real life (DeFi Advocacy DAO, MarketingDAO)")
-    ;
+    OWNERSHIP_DAO("Ownership", "DAO with the purpose to own, maintain and share a physical or digital thing or funds (Constitution DAO, PleaserDAO, MetaCartel Ventures)"),
+    REAL_LIFE_DAO("Real-life", "on-chain governance / control / sharing / voting for something based in real life (DeFi Advocacy DAO, MarketingDAO)");
 
     private final String typeName;
     private final String description;

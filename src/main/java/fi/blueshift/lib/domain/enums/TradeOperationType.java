@@ -2,20 +2,23 @@ package fi.blueshift.lib.domain.enums;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum SwapOperationType {
+public enum TradeOperationType {
 
     BUY("buy"),
-    SELL("sell"),
-    ;
+    SELL("sell");
 
     private final String title;
 
-    SwapOperationType(String title) {
+    TradeOperationType(String title) {
         this.title = title;
     }
 
     @JsonValue
     public String getTitle() {
         return title;
+    }
+
+    public TradeOperationType getReverseType() {
+        return this == BUY ? SELL : BUY;
     }
 }

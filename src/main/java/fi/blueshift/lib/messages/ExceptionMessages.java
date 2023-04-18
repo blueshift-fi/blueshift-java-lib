@@ -15,7 +15,7 @@ public class ExceptionMessages {
     public static final String SUPPORTED_NETWORK_FETCHING_EXCEPTION = "There is no supported network with specified params '%s'";
     public static final String HEALTH_FETCHING_EXCEPTION = "There is no network (chain) status for specified params '%s'";
 
-//    public static final String FORBIDDEN_ERROR = "Need proper permission to access. Please try login";
+    //    public static final String FORBIDDEN_ERROR = "Need proper permission to access. Please try login";
 //    public static final String VALIDATION_ERROR = "Unacceptable arguments. Please check request parameters";
 //    public static final String METHOD_ARGUMENT_VALIDATION_ERROR = "Method argument not valid";
 //    public static final String ENTITY_NOT_FOUND_ERROR = "Entity not found. Please check request parameters";

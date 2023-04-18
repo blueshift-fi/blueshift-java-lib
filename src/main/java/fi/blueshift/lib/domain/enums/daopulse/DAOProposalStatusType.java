@@ -4,10 +4,9 @@ import java.util.Arrays;
 
 public enum DAOProposalStatusType {
 
-    ACCEPTED( "Accepted", "Proposal is accepted"),
-    REJECTED ("Rejected", "Proposal is rejected"),
-    UNKNOWN("Unknown", "No decision for proposal")
-    ;
+    ACCEPTED("Accepted", "Proposal is accepted"),
+    REJECTED("Rejected", "Proposal is rejected"),
+    UNKNOWN("Unknown", "No decision for proposal");
 
     private final String typeName;
     private final String description;

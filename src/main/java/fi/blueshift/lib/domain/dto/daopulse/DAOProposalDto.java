@@ -15,7 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class DAOProposalDto extends BaseDto{
+public class DAOProposalDto extends BaseDto {
 
 
     private static final long serialVersionUID = 7376656867230368923L;

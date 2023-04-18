@@ -6,12 +6,11 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 
 public enum DAOProposalStateType {
 
-    VOTING( "Voting", "Proposal is in active or voting phase", "active"),
-    PENDING ("Pending", "Proposal is pending for start", "pending"),
+    VOTING("Voting", "Proposal is in active or voting phase", "active"),
+    PENDING("Pending", "Proposal is pending for start", "pending"),
     CLOSED("Closed", "Proposal was closed for voting", "closed"),
-    CORE ("Core", "", "core"),
-    UNKNOWN("Unknown", "", "")
-    ;
+    CORE("Core", "", "core"),
+    UNKNOWN("Unknown", "", "");
 
     private final String typeName;
     private final String description;
@@ -31,7 +30,7 @@ public enum DAOProposalStateType {
     }
 
     public static DAOProposalStateType fromSnapshotName(String snapshotType) {
-        if(isBlank(snapshotType)){
+        if (isBlank(snapshotType)) {
             return null;
         }
         return Arrays.stream(DAOProposalStateType.values()).parallel()

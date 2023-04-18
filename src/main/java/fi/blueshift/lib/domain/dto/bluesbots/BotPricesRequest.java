@@ -18,16 +18,19 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class BotPricesRequest {
+
     @JsonProperty("tokens")
     @JsonAlias({"token"})
     List<String> tokenAddressList;
+
     @JsonProperty("baseToken")
     String quoteTokenAddress;
+
     @Builder.Default
     boolean isSignatureNeeded = false;
 
     @JsonGetter("signature")
-    public boolean getSignatureSign(){
+    public boolean getSignatureSign() {
         return isSignatureNeeded;
     }
 }
