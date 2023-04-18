@@ -11,8 +11,7 @@ public enum DataProviderType {
     GLASSNODE,
     BITQUERY,
     SNAPSHOT,
-    BOARDROOM
-    ;
+    BOARDROOM;
 
     public static DataProviderType getByName(String name) {
         return List.of(DataProviderType.values()).parallelStream()

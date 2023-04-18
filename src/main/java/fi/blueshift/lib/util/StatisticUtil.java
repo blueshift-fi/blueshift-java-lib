@@ -17,9 +17,8 @@ import static java.util.Objects.nonNull;
 
 
 public class StatisticUtil {
-    private final BigDecimal ONE_HUNDRED = BigDecimal.valueOf(100);
     private static final int BIG_DECIMAL_SCALE = 18;
-
+    private final BigDecimal ONE_HUNDRED = BigDecimal.valueOf(100);
     private final Long defaultUSDDecimals;
 
     public StatisticUtil(Long defaultUSDDecimals) {
@@ -80,6 +79,10 @@ public class StatisticUtil {
         //Round the number to the correct number of decimal places.
         ans = ans.round(new MathContext(ans.precision() - ans.scale() + BIG_DECIMAL_SCALE, RoundingMode.HALF_EVEN));
         return ans;
+    }
+
+    public static <T extends Comparable<T>> boolean isBetween(T value, T start, T end) {
+        return value.compareTo(start) >= 0 && value.compareTo(end) <= 0;
     }
 
     public BigDecimal calculateAmountChangePercent(BigDecimal amountCurrent, BigDecimal amountBefore) {

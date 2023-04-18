@@ -2,12 +2,10 @@ package fi.blueshift.lib.domain.graphqlDto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import fi.blueshift.lib.domain.enums.CryptoNetworkType;
-import fi.blueshift.lib.domain.enums.SwapOperationType;
 import io.leangen.graphql.annotations.GraphQLId;
 import io.leangen.graphql.annotations.GraphQLInputField;
 import io.leangen.graphql.annotations.types.GraphQLType;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -34,42 +32,25 @@ public class TokenPairDto implements Serializable {
     CryptoNetworkType network;
 
     @GraphQLInputField
-    TokenDto token0;
+    TokenDto tokenBase;
     @JsonAlias({"tokenBaseAddress"})
     @NotNull
-    String token0AddressId;
-    @JsonAlias({"tokenBaseMarketSymbol"})
+    String tokenBaseAddressId;
+
     @NotNull
-    String token0MarketSymbol;
+    String tokenBaseMarketSymbol;
 
     @GraphQLInputField
-    TokenDto token1;
+    TokenDto tokenQuote;
     @JsonAlias({"tokenQuoteAddress"})
     @NotNull
-    String token1AddressId;
-    @JsonAlias({"tokenQuoteMarketSymbol"})
+    String tokenQuoteAddressId;
+
     @NotNull
-    String token1MarketSymbol;
+    String tokenQuoteMarketSymbol;
 
     @JsonAlias({"relatedPortfolioAddresses"})
     List<String> portfolioAddressTrackList;
-
-    @Builder.Default
-    SwapOperationType operationType = SwapOperationType.BUY;
-
-    public String getTokenBaseAddress() {
-        if (operationType == SwapOperationType.BUY) {
-            return token0AddressId;
-        }
-        return token1AddressId;
-    }
-
-    public String getTokenQuoteAddress() {
-        if (operationType == SwapOperationType.BUY) {
-            return token1AddressId;
-        }
-        return token0AddressId;
-    }
 
 //
 //    /**

@@ -4,9 +4,7 @@ import java.util.Arrays;
 
 public enum DAOTechnologyType {
 
-    MOLOCH("Moloch")
-
-            ;
+    MOLOCH("Moloch");
 
     private final String typeName;
 

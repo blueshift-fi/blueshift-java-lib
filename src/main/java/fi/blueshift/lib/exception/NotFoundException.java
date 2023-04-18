@@ -17,5 +17,4 @@ public class NotFoundException extends Exception {
     public String toString() {
         return "NotFoundException: " + getMessage();
     }
-
 }

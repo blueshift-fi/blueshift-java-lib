@@ -15,27 +15,16 @@ import java.util.List;
 public class DAOProposalVoteDto extends BaseDto {
 
     private static final long serialVersionUID = -8943341520383512994L;
-
-    private String externalGuid;
-
-    private String externalRawGuid;
-
-    private String ipfsId;
-
-    private WalletDto voterWallet;
-
-    private Integer selectedChoiceIndex;
-
-    private String selectedChoice;
-
-    private Double votingTokenCount;
-
-    private List<DAOProposalScoreStrategyDto> votingTokenCountStrategy;
-
-    private String votingState;
-
     Object metadata;
-
+    private String externalGuid;
+    private String externalRawGuid;
+    private String ipfsId;
+    private WalletDto voterWallet;
+    private Integer selectedChoiceIndex;
+    private String selectedChoice;
+    private Double votingTokenCount;
+    private List<DAOProposalScoreStrategyDto> votingTokenCountStrategy;
+    private String votingState;
     private LocalDateTime votedAt;
 
     private Long proposalId;

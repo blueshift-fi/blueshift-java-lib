@@ -6,7 +6,7 @@ public enum DAOMemberStatusType {
     QUIT,
     ADMIN;
 
-    public boolean isActive(){
+    public boolean isActive() {
         return this.equals(ACTIVE) || this.equals(ADMIN);
     }
 }

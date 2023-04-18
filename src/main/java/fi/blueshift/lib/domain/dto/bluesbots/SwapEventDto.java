@@ -1,4 +1,4 @@
-package fi.blueshift.lib.domain.kafkaDto;
+package fi.blueshift.lib.domain.dto.bluesbots;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

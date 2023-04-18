@@ -23,15 +23,15 @@ public enum NewsType {
                 .findFirst().orElse(null);
     }
 
+    public static NewsType getDefault() {
+        return NewsType.NEWS;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public String getTypeName() {
         return typeName;
-    }
-
-    public static NewsType getDefault() {
-        return NewsType.NEWS;
     }
 }

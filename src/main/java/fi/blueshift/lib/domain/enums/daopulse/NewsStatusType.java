@@ -23,15 +23,15 @@ public enum NewsStatusType {
                 .findFirst().orElse(null);
     }
 
+    public static NewsStatusType getDefault() {
+        return NewsStatusType.PUBLISHED;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public String getTypeName() {
         return typeName;
-    }
-
-    public static NewsStatusType getDefault() {
-        return NewsStatusType.PUBLISHED;
     }
 }

@@ -16,10 +16,8 @@ public class WalletDto extends BaseDto implements Serializable {
 
 
     private static final long serialVersionUID = -8033241909075201075L;
-
-    private Long id;
-
     List<AccountDto> accountList;
+    private Long id;
     private CryptoAddressDto cryptoAddress;
     private Long daoHolderId;
     private Long daoHolderName;
