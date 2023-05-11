@@ -1,12 +1,21 @@
 package fi.blueshift.lib.domain.dto.bluesdex;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.web3j.abi.datatypes.StaticStruct;
 import org.web3j.abi.datatypes.generated.Bytes32;
 import org.web3j.abi.datatypes.generated.Uint8;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 
-public class Signature extends StaticStruct {
+@ToString
+@Getter
+@Setter
+public class Signature extends StaticStruct implements Serializable {
+    private static final long serialVersionUID = -6995140110692956252L;
+
     //example
     // "v":27,
     // "r":"0x2417dadb1c2bfb84ba12a00b39bffd59eabb1e781bfcb2753753fde3180fcbbb",
@@ -17,6 +26,10 @@ public class Signature extends StaticStruct {
     public byte[] r;
 
     public byte[] s;
+
+    public Signature() {
+
+    }
 
     public Signature(BigInteger v, byte[] r, byte[] s) {
         super(new Uint8(v),

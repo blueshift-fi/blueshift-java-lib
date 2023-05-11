@@ -8,6 +8,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
@@ -17,7 +18,9 @@ import java.util.List;
 @SuperBuilder
 @JsonIgnoreProperties(ignoreUnknown = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class BotPricesRequest {
+public class BotPricesRequest implements Serializable {
+
+    private static final long serialVersionUID = -2332084921192074250L;
 
     @JsonProperty("tokens")
     @JsonAlias({"token"})

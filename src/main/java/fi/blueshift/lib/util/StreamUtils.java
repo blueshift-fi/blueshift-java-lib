@@ -1,7 +1,7 @@
 package fi.blueshift.lib.util;
 
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
@@ -22,7 +22,7 @@ public class StreamUtils {
         return Collectors.collectingAndThen(
                 Collectors.toList(),
                 list -> {
-                    Map<K, U> result = new HashMap<>();
+                    Map<K, U> result = new LinkedHashMap<>();
                     for (T item : list) {
                         K key = keyMapper.apply(item);
                         U value = valueMapper.apply(item);

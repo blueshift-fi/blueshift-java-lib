@@ -10,6 +10,9 @@ public class FileUtil {
      * It throws NoSuchFileException (linux), InvalidPathException (Windows)
      * <p>
      * Resource URL Sample: file:java-io.jar!/json/file1.json
+     * @param aClass class initiator
+     * @param fileName name of file
+     * @return file stream
      */
     public static InputStream getFileFromResourceAsStream(Class<?> aClass, String fileName) {
         // The class loader that loaded the class
