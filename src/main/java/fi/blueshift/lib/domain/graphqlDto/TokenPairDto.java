@@ -1,6 +1,7 @@
 package fi.blueshift.lib.domain.graphqlDto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import fi.blueshift.lib.domain.dto.TokenPairTradingConfigDto;
 import fi.blueshift.lib.domain.enums.CryptoNetworkType;
 import io.leangen.graphql.annotations.GraphQLId;
 import io.leangen.graphql.annotations.GraphQLInputField;
@@ -13,7 +14,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 
 @GraphQLType(name = "Pair")
 @Data
@@ -32,25 +33,27 @@ public class TokenPairDto implements Serializable {
     CryptoNetworkType network;
 
     @GraphQLInputField
-    TokenDto tokenBase;
-    @JsonAlias({"tokenBaseAddress"})
+    TokenDto baseToken;
+    @JsonAlias({"baseTokenAddress"})
     @NotNull
-    String tokenBaseAddressId;
+    String baseTokenAddressId;
 
     @NotNull
-    String tokenBaseMarketSymbol;
+    String baseTokenMarketSymbol;
+
+    TokenPairTradingConfigDto tradingConfig;
 
     @GraphQLInputField
-    TokenDto tokenQuote;
-    @JsonAlias({"tokenQuoteAddress"})
+    TokenDto quoteToken;
+    @JsonAlias({"quoteTokenAddress"})
     @NotNull
-    String tokenQuoteAddressId;
+    String quoteTokenAddressId;
 
     @NotNull
-    String tokenQuoteMarketSymbol;
+    String quoteTokenMarketSymbol;
 
     @JsonAlias({"relatedPortfolioAddresses"})
-    List<String> portfolioAddressTrackList;
+    Set<String> portfolioAddressTrackList;
 
 //
 //    /**

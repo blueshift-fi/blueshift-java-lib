@@ -18,7 +18,7 @@ import static java.util.Objects.nonNull;
 
 public class StatisticUtil {
     private static final int BIG_DECIMAL_SCALE = 18;
-    private final BigDecimal ONE_HUNDRED = BigDecimal.valueOf(100);
+    private static final BigDecimal ONE_HUNDRED = BigDecimal.valueOf(100);
     private final Long defaultUSDDecimals;
 
     public StatisticUtil(Long defaultUSDDecimals) {
@@ -37,6 +37,37 @@ public class StatisticUtil {
             return null;
         }
         return amount.multiply(BigDecimal.valueOf(Math.pow(10, decimalCoef)));
+    }
+
+    public static BigDecimal getAverage(BigDecimal... values) {
+        BigDecimal sum = BigDecimal.ZERO;
+        for (BigDecimal val : values) {
+            sum = sum.add(val);
+        }
+        return sum.divide(new BigDecimal(values.length), RoundingMode.HALF_UP);
+    }
+
+    public static BigDecimal getRandomAmount(BigDecimal min, BigDecimal max) {
+        BigDecimal randomBigDecimal = min.add(BigDecimal.valueOf(Math.random()).multiply(max.subtract(min)));
+        return randomBigDecimal.setScale(BIG_DECIMAL_SCALE, RoundingMode.HALF_UP);
+    }
+
+    public static BigDecimal getAmountPlusRandomDelta(BigDecimal amount, BigDecimal delta) {
+        return getRandomAmount(amount, amount.add(delta));
+    }
+
+    public static BigDecimal getAmountMinusRandomDelta(BigDecimal amount, BigDecimal delta) {
+        return getRandomAmount(amount.subtract(delta), amount);
+    }
+
+    public static BigDecimal getAmountWithRandomDelta(BigDecimal amount, BigDecimal delta) {
+        return getRandomAmount(amount.subtract(delta), amount.add(delta));
+    }
+
+    public static BigDecimal copyBigDecimalOf(BigDecimal value) {
+        if (value == null || value.getClass() == BigDecimal.class)
+            return value;
+        return new BigDecimal(value.unscaledValue(), value.scale());
     }
 
     public static BigDecimal log10(BigDecimal b) {

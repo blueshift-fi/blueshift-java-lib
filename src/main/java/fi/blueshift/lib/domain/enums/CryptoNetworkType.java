@@ -11,6 +11,8 @@ public enum CryptoNetworkType {
     MILKOMEDA_ALGORAND("MilkAlgo", "Milkomeda Algorand A1", "Milkomeda Algorand", "Milkomeda extension of Algorand network"),
     KAVA("Kava", "Kava EVM co-Chain", "Kava", "The Kava Network is a blockchain with support the Cosmos SDK and developers of Ethereum."),
     BLUES_CHAIN("Blues", "Blueshift chain", "Blueshift", "The Blueshift chain is a blockchain with support the Cosmos SDK."),
+    POLYGON("Polygon", "Polygon", "Polygon", "Polygon protocol is a Layer 2 commit chain to the Ethereum network."),
+    EVM_CHAIN("EVM Based", "EVM chain", "EVM", "EVM Based chain"),
     ;
 
     private final String typeName;
@@ -24,6 +26,14 @@ public enum CryptoNetworkType {
         this.displayName = displayName;
         this.shortName = shortName;
         this.description = description;
+    }
+
+    public static CryptoNetworkType getByName(String name){
+        try {
+            return CryptoNetworkType.valueOf(name);
+        }catch (IllegalArgumentException e){
+            return null;
+        }
     }
 
     public static CryptoNetworkType fromType(String type) {

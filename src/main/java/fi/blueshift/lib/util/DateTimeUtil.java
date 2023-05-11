@@ -21,6 +21,8 @@ public class DateTimeUtil {
 
     /**
      * get timestamp from DateTime with milliseconds
+     * @param dateTime the date for convert
+     * @return timsetamp
      */
     public static Long getTimestamp(LocalDateTime dateTime) {
         if (isNull(dateTime)) {

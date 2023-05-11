@@ -6,6 +6,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -16,7 +17,9 @@ import java.util.concurrent.TimeUnit;
 @SuperBuilder
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class BotPricesResponse extends BotPricesRequest {
+public class BotPricesResponse extends BotPricesRequest implements Serializable {
+    private static final long serialVersionUID = -2332084921192074250L;
+
     @JsonProperty("price")
     List<BigDecimal> tokenPriceList;
 
