@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static java.util.Objects.isNull;
@@ -45,6 +46,13 @@ public class StatisticUtil {
             sum = sum.add(val);
         }
         return sum.divide(new BigDecimal(values.length), RoundingMode.HALF_UP);
+    }
+
+    public static BigDecimal getAverage(List<BigDecimal> bigDecimals) {
+        BigDecimal sum = bigDecimals.stream()
+                .filter(Objects::nonNull)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+        return sum.divide(new BigDecimal(bigDecimals.size()), RoundingMode.HALF_UP);
     }
 
     public static BigDecimal getRandomAmount(BigDecimal min, BigDecimal max) {
