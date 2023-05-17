@@ -55,6 +55,9 @@ public class StatisticUtil {
         BigDecimal sum = bigDecimals.stream()
                 .filter(Objects::nonNull)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+        if(sum.compareTo(BigDecimal.ZERO) == 0){
+            return sum;
+        }
         return sum.divide(new BigDecimal(bigDecimals.size()), RoundingMode.HALF_UP);
     }
 
