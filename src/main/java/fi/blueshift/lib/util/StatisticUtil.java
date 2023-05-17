@@ -45,6 +45,9 @@ public class StatisticUtil {
         for (BigDecimal val : values) {
             sum = sum.add(val);
         }
+        if(sum.compareTo(BigDecimal.ZERO) == 0){
+            return sum;
+        }
         return sum.divide(new BigDecimal(values.length), RoundingMode.HALF_UP);
     }
 
