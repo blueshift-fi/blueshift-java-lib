@@ -1,5 +1,7 @@
 package fi.blueshift.lib.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,12 +10,19 @@ import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TokenPairTradingConfigDto implements Serializable {
 
     private static final long serialVersionUID = -310194046034457676L;
+
+    boolean enabled = true;
+
     BigDecimal baseTokenMinTradingAmount;
 
     BigDecimal baseTokenMaxTradingAmount;
+
+    @JsonProperty("pricePrecision")
+    Integer pricePrecisionDecimals;
 
     BigDecimal baseTokenMinProfitAmount = BigDecimal.ZERO;
 

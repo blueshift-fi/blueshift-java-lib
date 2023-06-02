@@ -41,6 +41,8 @@ public class TokenPairDto implements Serializable {
     @NotNull
     String baseTokenMarketSymbol;
 
+    CryptoNetworkType baseTokenNetwork;
+
     TokenPairTradingConfigDto tradingConfig;
 
     @GraphQLInputField
@@ -51,6 +53,8 @@ public class TokenPairDto implements Serializable {
 
     @NotNull
     String quoteTokenMarketSymbol;
+
+    CryptoNetworkType quoteTokenNetwork;
 
     @JsonAlias({"relatedPortfolioAddresses"})
     Set<String> portfolioAddressTrackList;

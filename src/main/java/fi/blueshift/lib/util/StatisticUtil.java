@@ -26,18 +26,18 @@ public class StatisticUtil {
         this.defaultUSDDecimals = defaultUSDDecimals;
     }
 
-    public static BigDecimal getAmountFromDecimalAmount(BigDecimal decimalAmount, Long decimalCoef) {
+    public static BigDecimal getAmountFromDecimalAmount(BigDecimal decimalAmount, Integer decimalCoef) {
         if (isNull(decimalAmount) || isNull(decimalCoef)) {
             return BigDecimal.ZERO;
         }
-        return decimalAmount.divide(BigDecimal.valueOf(Math.pow(10, decimalCoef)), decimalCoef.intValue(), RoundingMode.HALF_UP);
+        return decimalAmount.divide(BigDecimal.valueOf(Math.pow(10, decimalCoef)), decimalCoef, RoundingMode.HALF_UP);
     }
 
-    public static BigDecimal getDecimalAmountFromAmount(BigDecimal amount, Long decimalCoef) {
+    public static BigDecimal getDecimalAmountFromAmount(BigDecimal amount, Integer decimalCoef) {
         if (isNull(amount) || isNull(decimalCoef)) {
             return null;
         }
-        return amount.multiply(BigDecimal.valueOf(Math.pow(10, decimalCoef)));
+        return amount.multiply(BigDecimal.valueOf(Math.pow(10, decimalCoef))).setScale(0, RoundingMode.DOWN);
     }
 
     public static BigDecimal getAverage(BigDecimal... values) {
@@ -144,7 +144,7 @@ public class StatisticUtil {
         return amountChangePercent;
     }
 
-    public List<Point2D.Double> interpolatedPoints(@NotEmpty List<Point2D.Double> rawPointsList,
+    public static List<Point2D.Double> interpolatedPoints(@NotEmpty List<Point2D.Double> rawPointsList,
                                                    @NotEmpty List<Double> xGoalList) {
         double[] existedXPoints = rawPointsList.parallelStream().mapToDouble(Point2D::getX).toArray();
         double[] existedYPoints = rawPointsList.parallelStream().mapToDouble(Point2D::getY).toArray();
