@@ -18,7 +18,7 @@ import java.util.Set;
 
 @GraphQLType(name = "Pair")
 @Data
-@SuperBuilder
+@SuperBuilder(toBuilder = true)
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class TokenPairDto implements Serializable {

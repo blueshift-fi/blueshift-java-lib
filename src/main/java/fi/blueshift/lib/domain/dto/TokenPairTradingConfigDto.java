@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -24,7 +25,20 @@ public class TokenPairTradingConfigDto implements Serializable {
     @JsonProperty("pricePrecision")
     Integer pricePrecisionDecimals;
 
-    BigDecimal baseTokenMinProfitAmount = BigDecimal.ZERO;
+    BigDecimal baseTokenMinProfitAmount;
 
-    BigDecimal quoteTokenMinProfitAmount = BigDecimal.ZERO;
+    BigDecimal quoteTokenMinProfitAmount;
+
+    List<OrderBookPlacerConfigDto> orderBookPlacerConfigLevels;
+
+    @Data
+    @NoArgsConstructor
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class OrderBookPlacerConfigDto implements Serializable {
+        Integer levelIndex;
+        Double minProfitPercentage;
+        Double maxProfitPercentage;
+        BigDecimal liquidityAmount;
+        Integer ordersCountForLevel;
+    }
 }
