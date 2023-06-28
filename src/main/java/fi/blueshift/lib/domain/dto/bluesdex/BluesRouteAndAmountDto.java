@@ -14,6 +14,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import static java.util.Objects.nonNull;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @Data
 @SuperBuilder
@@ -59,27 +60,6 @@ public class BluesRouteAndAmountDto {
     /**
      * Define main calculated properties from RouteData
      */
-//    public void build() {
-//        if (tokenInDecimals != tokenOutDecimals) {
-//            BigDecimal amountOutput;
-//            if (nonNull(amountOutDecimals)) {
-//                amountOutput = StatisticUtil.getAmountFromDecimalAmount(amountOutDecimals, tokenOutDecimals);
-//                amountSource = StatisticUtil.getAmountFromDecimalAmount(amountDecimalsSource, tokenInDecimals);
-//            } else {
-//                amountOutput = StatisticUtil.getAmountFromDecimalAmount(amountInDecimals, tokenInDecimals);
-//                amountSource = StatisticUtil.getAmountFromDecimalAmount(amountDecimalsSource, tokenOutDecimals);
-//            }
-//            price = amountOutput.divide(amountSource, RoundingMode.HALF_DOWN);
-//        } else {
-//            if (nonNull(amountOutDecimals)) {
-//                amountSource = StatisticUtil.getAmountFromDecimalAmount(amountDecimalsSource, tokenInDecimals);
-//            } else {
-//                amountSource = StatisticUtil.getAmountFromDecimalAmount(amountDecimalsSource, tokenOutDecimals);
-//            }
-//            price = amountOutDecimals.divide(amountSource, this.tokenInDecimals, RoundingMode.HALF_DOWN);
-//        }
-//    }
-
     public void build() {
         BigDecimal amountOutputRaw;
         BigDecimal amountSourceRaw;
@@ -118,10 +98,18 @@ public class BluesRouteAndAmountDto {
         LinkedList<String> chainList;
 
         @JsonProperty("portfolios")
-        List<String> availablePortfolioList;
+        List<String> portfolioRoute;
 
-        //"crossChainPortfolioIndex": "-1"
+        //example "crossChainPortfolioIndex": "-1"
         String crossChainPortfolioIndex;
+
+        public String getCrossChainPortfolioIndex() {
+            if(isBlank(crossChainPortfolioIndex) || crossChainPortfolioIndex.equals("-1")){
+                return "0";
+            }
+            return crossChainPortfolioIndex;
+        }
+
     }
 
 //    private void build2() {

@@ -38,7 +38,7 @@ public class TokenPairTradingConfigDto implements Serializable {
         Integer levelIndex;
         Double minProfitPercentage;
         Double maxProfitPercentage;
-        BigDecimal liquidityAmount;
+        Double liquidityAmount;
         Integer ordersCountForLevel;
     }
 }
