@@ -53,7 +53,7 @@ public class TokenDto {
      * token decimals
      */
     @GraphQLInputField
-    Long decimals;
+    Integer decimals;
 
     /**
      * token total supply

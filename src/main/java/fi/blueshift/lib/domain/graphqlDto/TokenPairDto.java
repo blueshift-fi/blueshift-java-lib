@@ -18,7 +18,7 @@ import java.util.Set;
 
 @GraphQLType(name = "Pair")
 @Data
-@SuperBuilder
+@SuperBuilder(toBuilder = true)
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class TokenPairDto implements Serializable {
@@ -41,6 +41,8 @@ public class TokenPairDto implements Serializable {
     @NotNull
     String baseTokenMarketSymbol;
 
+    CryptoNetworkType baseTokenNetwork;
+
     TokenPairTradingConfigDto tradingConfig;
 
     @GraphQLInputField
@@ -51,6 +53,8 @@ public class TokenPairDto implements Serializable {
 
     @NotNull
     String quoteTokenMarketSymbol;
+
+    CryptoNetworkType quoteTokenNetwork;
 
     @JsonAlias({"relatedPortfolioAddresses"})
     Set<String> portfolioAddressTrackList;

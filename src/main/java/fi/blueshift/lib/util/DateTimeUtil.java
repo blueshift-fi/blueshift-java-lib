@@ -44,6 +44,17 @@ public class DateTimeUtil {
         return getDateTimeWithSec(timestamp);
     }
 
+    public static Long getTimestampInSeconds(Long timestamp) {
+        if (isNull(timestamp) || timestamp <= 0L) {
+            return null;
+        }
+        int length = (int) (Math.log10(timestamp) + 1);
+        if (length > 10) {
+            return timestamp / 1000;
+        }
+        return timestamp;
+    }
+
     private static LocalDateTime getDateTimeWithSec(Long timestamp) {
         return LocalDateTime.ofInstant(Instant.ofEpochSecond(timestamp), ZoneOffset.UTC);
     }

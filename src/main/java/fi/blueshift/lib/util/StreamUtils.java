@@ -35,6 +35,25 @@ public class StreamUtils {
                 });
     }
 
+    public static <T, K, U> Collector<T, ?, Map<K, U>> toConcurrentMap(Function<? super T, ? extends K> keyMapper,
+                                                             Function<? super T, ? extends U> valueMapper) {
+        return Collectors.collectingAndThen(
+                Collectors.toList(),
+                list -> {
+                    Map<K, U> result = new ConcurrentHashMap<>();
+                    for (T item : list) {
+                        K key = keyMapper.apply(item);
+                        U value = valueMapper.apply(item);
+                        if (value == null || (isAllNull(value))) continue;
+                        if (result.putIfAbsent(key, value) != null) {
+                            throw new IllegalStateException(String.format("Duplicate key %s", key));
+                        }
+                    }
+                    return result;
+                });
+    }
+
+
     public static boolean isAllNull(Object list) {
         if (list instanceof Collection) {
             for (Object obj : (Iterable<?>) list) {

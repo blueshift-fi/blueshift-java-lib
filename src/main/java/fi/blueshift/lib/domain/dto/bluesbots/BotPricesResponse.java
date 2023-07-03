@@ -27,6 +27,10 @@ public class BotPricesResponse extends BotPricesRequest implements Serializable 
 
     Signature signature;
 
+    public BotPricesResponse(BotPricesRequest request) {
+        super(request.toBuilder());
+    }
+
     public Long getTtlTimestamp() {
         return timestamp + TimeUnit.SECONDS.toMillis(59);
     }

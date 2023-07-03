@@ -19,25 +19,26 @@ import static java.util.Objects.nonNull;
 
 public class StatisticUtil {
     private static final int BIG_DECIMAL_SCALE = 18;
-    private static final BigDecimal ONE_HUNDRED = BigDecimal.valueOf(100);
+    private static final Double ONE_HUNDRED_DOUBLE = 100.0;
+    private static final BigDecimal ONE_HUNDRED = BigDecimal.valueOf(ONE_HUNDRED_DOUBLE);
     private final Long defaultUSDDecimals;
 
     public StatisticUtil(Long defaultUSDDecimals) {
         this.defaultUSDDecimals = defaultUSDDecimals;
     }
 
-    public static BigDecimal getAmountFromDecimalAmount(BigDecimal decimalAmount, Long decimalCoef) {
+    public static BigDecimal getAmountFromDecimalAmount(BigDecimal decimalAmount, Integer decimalCoef) {
         if (isNull(decimalAmount) || isNull(decimalCoef)) {
             return BigDecimal.ZERO;
         }
-        return decimalAmount.divide(BigDecimal.valueOf(Math.pow(10, decimalCoef)), decimalCoef.intValue(), RoundingMode.HALF_UP);
+        return decimalAmount.divide(BigDecimal.valueOf(Math.pow(10, decimalCoef)), decimalCoef, RoundingMode.HALF_UP);
     }
 
-    public static BigDecimal getDecimalAmountFromAmount(BigDecimal amount, Long decimalCoef) {
+    public static BigDecimal getDecimalAmountFromAmount(BigDecimal amount, Integer decimalCoef) {
         if (isNull(amount) || isNull(decimalCoef)) {
             return null;
         }
-        return amount.multiply(BigDecimal.valueOf(Math.pow(10, decimalCoef)));
+        return amount.multiply(BigDecimal.valueOf(Math.pow(10, decimalCoef))).setScale(0, RoundingMode.DOWN);
     }
 
     public static BigDecimal getAverage(BigDecimal... values) {
@@ -45,7 +46,7 @@ public class StatisticUtil {
         for (BigDecimal val : values) {
             sum = sum.add(val);
         }
-        if(sum.compareTo(BigDecimal.ZERO) == 0){
+        if (sum.compareTo(BigDecimal.ZERO) == 0) {
             return sum;
         }
         return sum.divide(new BigDecimal(values.length), RoundingMode.HALF_UP);
@@ -55,7 +56,7 @@ public class StatisticUtil {
         BigDecimal sum = bigDecimals.stream()
                 .filter(Objects::nonNull)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
-        if(sum.compareTo(BigDecimal.ZERO) == 0){
+        if (sum.compareTo(BigDecimal.ZERO) == 0) {
             return sum;
         }
         return sum.divide(new BigDecimal(bigDecimals.size()), RoundingMode.HALF_UP);
@@ -130,12 +131,12 @@ public class StatisticUtil {
         return value.compareTo(start) >= 0 && value.compareTo(end) <= 0;
     }
 
-    public BigDecimal calculateAmountChangePercent(BigDecimal amountCurrent, BigDecimal amountBefore) {
+    public static BigDecimal calculateAmountChangePercent(BigDecimal amountCurrent, BigDecimal amountBefore) {
         BigDecimal amountChangePercent = BigDecimal.ZERO;
         if (nonNull(amountCurrent) && nonNull(amountBefore)) {
             if (amountBefore.compareTo(BigDecimal.ZERO) != 0) {
                 amountChangePercent = amountCurrent.subtract(amountBefore)
-                        .divide(amountBefore, defaultUSDDecimals.intValue(), RoundingMode.HALF_UP)
+                        .divide(amountBefore, amountBefore.scale(), RoundingMode.HALF_UP)//make scale like value before
                         .multiply(ONE_HUNDRED);
             } else if (amountCurrent.compareTo(BigDecimal.ZERO) != 0) {
                 amountChangePercent = ONE_HUNDRED;
@@ -144,8 +145,20 @@ public class StatisticUtil {
         return amountChangePercent;
     }
 
-    public List<Point2D.Double> interpolatedPoints(@NotEmpty List<Point2D.Double> rawPointsList,
-                                                   @NotEmpty List<Double> xGoalList) {
+    public static Double calculateAmountChangePercent(Double amountCurrent, Double amountBefore) {
+        double amountChangePercent = 0.0;
+        if (nonNull(amountCurrent) && nonNull(amountBefore)) {
+            if (amountBefore != 0.0) {
+                amountChangePercent = (amountCurrent - amountBefore) / amountBefore * ONE_HUNDRED_DOUBLE;
+            } else if (amountCurrent  != 0.0) {
+                amountChangePercent = ONE_HUNDRED_DOUBLE;
+            }
+        }
+        return amountChangePercent;
+    }
+
+    public static List<Point2D.Double> interpolatedPoints(@NotEmpty List<Point2D.Double> rawPointsList,
+                                                          @NotEmpty List<Double> xGoalList) {
         double[] existedXPoints = rawPointsList.parallelStream().mapToDouble(Point2D::getX).toArray();
         double[] existedYPoints = rawPointsList.parallelStream().mapToDouble(Point2D::getY).toArray();
 
