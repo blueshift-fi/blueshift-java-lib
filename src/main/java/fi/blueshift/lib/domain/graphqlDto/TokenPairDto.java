@@ -1,7 +1,6 @@
 package fi.blueshift.lib.domain.graphqlDto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-import fi.blueshift.lib.domain.dto.TokenPairTradingConfigDto;
 import fi.blueshift.lib.domain.enums.CryptoNetworkType;
 import io.leangen.graphql.annotations.GraphQLId;
 import io.leangen.graphql.annotations.GraphQLInputField;
@@ -42,8 +41,6 @@ public class TokenPairDto implements Serializable {
     String baseTokenMarketSymbol;
 
     CryptoNetworkType baseTokenNetwork;
-
-    TokenPairTradingConfigDto tradingConfig;
 
     @GraphQLInputField
     TokenDto quoteToken;
