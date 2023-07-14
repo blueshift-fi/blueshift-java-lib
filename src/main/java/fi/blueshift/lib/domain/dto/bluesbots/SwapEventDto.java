@@ -42,4 +42,6 @@ public class SwapEventDto extends TransactionEventDto {
     //amount of quote token
     @JsonProperty("qoute_volume")
     BigDecimal quoteTokenVolume;
+
+    BigDecimal gasUsedVolume;
 }
