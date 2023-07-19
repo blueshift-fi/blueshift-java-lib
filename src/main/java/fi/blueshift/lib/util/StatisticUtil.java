@@ -21,11 +21,17 @@ public class StatisticUtil {
     private static final int BIG_DECIMAL_SCALE = 18;
     private static final Double ONE_HUNDRED_DOUBLE = 100.0;
     private static final BigDecimal ONE_HUNDRED = BigDecimal.valueOf(ONE_HUNDRED_DOUBLE);
+    private static final BigDecimal CALCULATION_ERROR = BigDecimal.ONE.divide(BigDecimal.valueOf(Math.pow(10, BIG_DECIMAL_SCALE - 1)), RoundingMode.UP);
     private final Long defaultUSDDecimals;
 
     public StatisticUtil(Long defaultUSDDecimals) {
         this.defaultUSDDecimals = defaultUSDDecimals;
     }
+
+    public static boolean bigDecimalsEqualsWithCalcError(BigDecimal first, BigDecimal second){
+        return first.subtract(second).abs().compareTo(CALCULATION_ERROR) <= 0;
+    }
+
 
     public static BigDecimal getAmountFromDecimalAmount(BigDecimal decimalAmount, Integer decimalCoef) {
         if (isNull(decimalAmount) || isNull(decimalCoef)) {
