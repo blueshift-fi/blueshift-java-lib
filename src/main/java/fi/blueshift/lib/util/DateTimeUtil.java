@@ -1,6 +1,6 @@
 package fi.blueshift.lib.util;
 
-import fi.blueshift.lib.domain.enums.daopulse.FrequencyIntervalType;
+import fi.blueshift.lib.domain.enums.FrequencyIntervalType;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
