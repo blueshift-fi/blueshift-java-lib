@@ -10,8 +10,13 @@ public enum CryptoNetworkType {
     MILKOMEDA_CARDANO("MilkAda", "Milkomeda Cardano C1", "Milkomeda", "Milkomeda extension of Cardano network"),
     MILKOMEDA_ALGORAND("MilkAlgo", "Milkomeda Algorand A1", "Milkomeda Algorand", "Milkomeda extension of Algorand network"),
     KAVA("Kava", "Kava EVM co-Chain", "Kava", "The Kava Network is a blockchain with support the Cosmos SDK and developers of Ethereum."),
-    BLUES_CHAIN("Blues", "Blueshift chain", "Blueshift", "The Blueshift chain is a blockchain with support the Cosmos SDK."),
+    CROSS_CHAIN("Crosschain", "Cross chain", "Crosschain", "Undefined chain protocol with support bridge operations."),
+    DEGEN_CHAIN("Degen", "Degen-layer chain", "Degen-layer", "Cross chain protocol for omnichain swaps."),
     POLYGON("Polygon", "Polygon", "Polygon", "Polygon protocol is a Layer 2 commit chain to the Ethereum network."),
+    ETHEREUM("Ethereum", "Ethereum", "Ethereum", "Main platform for creating decentralized services based on smart contracts."),
+    ARBITRUM("Arbitrum", "Arbitrum", "Arbitrum", "The leading Layer 2 technology blockchain"),
+    BERA_CHAIN("Berachain", "Berachain", "Bera", "A modular EVM compatible L1 chain"),
+    BOB_CHAIN("Bobchain", "Bobchain", "Bob", "BOB is a hybrid L2 that combines the security of Bitcoin with the versatility of Ethereum"),
     EVM_CHAIN("EVM Based", "EVM chain", "EVM", "EVM Based chain"),
     ;
 
