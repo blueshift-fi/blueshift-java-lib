@@ -31,6 +31,19 @@ public class DateTimeUtil {
         return dateTime.atZone(ZoneOffset.UTC).toInstant().toEpochMilli();
     }
 
+    /**
+     * get timestamp from DateTime with seconds
+     *
+     * @param dateTime the date for convert
+     * @return timsetamp
+     */
+    public static Long getTimestampSec(LocalDateTime dateTime) {
+        if (isNull(dateTime)) {
+            return null;
+        }
+        return dateTime.atZone(ZoneOffset.UTC).toInstant().getEpochSecond();
+    }
+
     public static LocalDateTime getDateTime(Long timestamp) {
         if (isNull(timestamp) || timestamp <= 0L) {
             return null;

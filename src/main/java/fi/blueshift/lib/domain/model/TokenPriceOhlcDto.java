@@ -1,4 +1,4 @@
-package fi.blueshift.lib.domain.dto;
+package fi.blueshift.lib.domain.model;
 
 import fi.blueshift.lib.domain.graphqlDto.TokenDto;
 import lombok.Getter;

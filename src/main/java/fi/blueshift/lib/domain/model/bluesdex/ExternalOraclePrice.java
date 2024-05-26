@@ -1,4 +1,4 @@
-package fi.blueshift.lib.domain.dto.bluesdex;
+package fi.blueshift.lib.domain.model.bluesdex;
 
 import lombok.NoArgsConstructor;
 import org.web3j.abi.datatypes.Address;

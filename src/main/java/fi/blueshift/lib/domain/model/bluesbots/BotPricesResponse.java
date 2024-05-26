@@ -1,7 +1,7 @@
-package fi.blueshift.lib.domain.dto.bluesbots;
+package fi.blueshift.lib.domain.model.bluesbots;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import fi.blueshift.lib.domain.dto.bluesdex.Signature;
+import fi.blueshift.lib.domain.model.bluesdex.Signature;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;

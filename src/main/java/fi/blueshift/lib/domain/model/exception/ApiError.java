@@ -1,4 +1,4 @@
-package fi.blueshift.lib.domain.dto.exception;
+package fi.blueshift.lib.domain.model.exception;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

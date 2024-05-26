@@ -1,6 +1,6 @@
 package fi.blueshift.lib.exception;
 
-import fi.blueshift.lib.domain.dto.exception.ApiError;
+import fi.blueshift.lib.domain.model.exception.ApiError;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,6 @@
 package fi.blueshift.lib.exception;
 
-import fi.blueshift.lib.domain.dto.exception.ValidationError;
+import fi.blueshift.lib.domain.model.exception.ValidationError;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.http.HttpStatus;

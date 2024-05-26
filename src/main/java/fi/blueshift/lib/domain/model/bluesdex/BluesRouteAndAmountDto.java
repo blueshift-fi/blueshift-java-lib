@@ -1,4 +1,4 @@
-package fi.blueshift.lib.domain.dto.bluesdex;
+package fi.blueshift.lib.domain.model.bluesdex;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
